@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Bike Go Rush - SA GAMEZ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="mobile-arcade-frame">
+    <div class="arcade-header">SA GAMEZ MOBILE</div>
+
+    <div id="game-container">
+        <div id="hud">
+            <div class="hud-row">
+                <div class="hud-box">SCORE: <span id="live-score">00000</span></div>
+                <button id="hud-pause-btn" onclick="togglePause()">⏸️</button>
+                <div class="hud-box coin-color">🪙 <span id="live-coins">0</span></div>
+            </div>
+            <div class="hud-row style-gap" style="margin-top: 5px;">
+                <div class="hud-box high-color">HI: <span id="hud-highscore">00000</span></div>
+                <div class="hud-box speed-color"><span id="speed-text">SPD: 1X</span></div>
+            </div>
+        </div>
+
+        <div id="menu-screen" class="game-screen">
+            <div class="game-title-area">
+                <span class="mini-tag">OFFLINE SYSTEM</span>
+                <h1>BIKE GO RUSH</h1>
+                <div class="company-sub">SA GAMEZ PRODUCTION</div>
+            </div>
+            
+            <div class="menu-stats-card">
+                <p>🏆 BEST RECORD: <span id="menu-highscore" class="green-text">0</span></p>
+                <p>🪙 TOTAL WALLET: <span id="menu-coins" class="coin-color">0</span></p>
+            </div>
+            
+            <div class="button-stack">
+                <button class="menu-btn btn-start" onclick="startGame()">START RACE 🏍️</button>
+                <button class="menu-btn btn-garage" onclick="openShop()">GARAGE 🛒</button>
+            </div>
+            
+            <div class="tap-hint">TAP SCREEN OR SPACEBAR TO JUMP</div>
+            <div class="branding-footer">Powered by SA GAMEZ</div>
+        </div>
+
+        <div id="shop-screen" class="game-screen" style="display: none;">
+            <div class="shop-header">
+                <h2>BIKE GARAGE</h2>
+                <div class="shop-wallet">COINS: <span id="shop-coins" class="coin-color">0</span></div>
+            </div>
+
+            <div class="shop-grid-container" id="shop-grid"></div>
+            
+            <button class="menu-btn btn-back" onclick="closeShop()">BACK TO MENU</button>
+            <div class="branding-footer">Powered by SA GAMEZ</div>
+        </div>
+
+        <div id="gameover-screen" class="game-screen" style="display: none;">
+            <div class="crash-alert">CRASHED!</div>
+            
+            <div class="score-summary">
+                <div class="summary-line"><span>DISTANCE:</span> <span id="final-score" class="green-text">0</span></div>
+                <div class="summary-line"><span>COINS CASHED:</span> <span id="final-coins" class="coin-color">0</span></div>
+                <div id="new-record-tag" class="blink-effect" style="display: none;">🎉 NEW HIGH SCORE 🎉</div>
+            </div>
+            
+            <div class="button-stack">
+                <button class="menu-btn btn-start" onclick="startGame()">RACE AGAIN 🔄</button>
+                <button class="menu-btn btn-back" onclick="toMenu()">MAIN MENU</button>
+            </div>
+            <div class="branding-footer">Powered by SA GAMEZ</div>
+        </div>
+
+        <div id="pause-screen" class="game-screen" style="display: none;">
+            <div class="pause-alert">PAUSED</div>
+            
+            <div class="button-stack">
+                <button class="menu-btn btn-start" onclick="togglePause()">RESUME ▶️</button>
+                <button class="menu-btn btn-back" onclick="toMenu()">QUIT TO MENU</button>
+            </div>
+            <div class="branding-footer">Powered by SA GAMEZ</div>
+        </div>
+
+        <canvas id="gameCanvas" width="400" height="600"></canvas>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
